@@ -13,6 +13,13 @@ public class JogoDePerguntasGUI extends JFrame {
             "Quantos Gols Cristiano Ronaldo fez pelo Real Madrid?",
             "Quem é o Clube com mais Champions League?"
     };
+    
+    private String[][] alternativas = {
+            {"0 \n", "1 \n", "2 \n", "3 \n"},
+            {"400", "450", "500", "550"},
+            {"Barcelona", "Real Madrid", "Bayern de Munique", "Liverpool"}
+    };
+    
     private String[] respostas = {
             "0",
             "450",
@@ -67,6 +74,9 @@ public class JogoDePerguntasGUI extends JFrame {
             perguntaLabel.setText("Pergunta " + (perguntaAtual + 1) + ": " + perguntas[perguntaAtual]);
             respostaField.setText("");
             feedbackLabel.setText("");
+            for (int i = 0; i < alternativas[perguntaAtual].length; i++) {
+                perguntaLabel.setText(perguntaLabel.getText() + "\n" + (char)('A' + i) + ". " + alternativas[perguntaAtual][i]);
+            }
         } else {
             perguntaLabel.setText("Jogo concluído!");
             respostaField.setEnabled(false);
